@@ -6,14 +6,18 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of lmww is to …
+The goal of lmww is to support thinking of linear models in terms of
+factor weights, instead of factor absolute coefficients. This means
+better interpretation of the model drivers, which helps in creating
+confidence in the model.
 
 ## Installation
 
 You can install the development version of lmww like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("0xdomyz/lmww")
 ```
 
 ## Example
@@ -23,28 +27,24 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(lmww)
 ## basic example code
+purrr::map(mtcars, std) |> dplyr::bind_cols()
+#> # A tibble: 32 × 11
+#>       mpg    cyl    disp     hp   drat       wt   qsec     vs     am   gear
+#>     <dbl>  <dbl>   <dbl>  <dbl>  <dbl>    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+#>  1  0.151 -0.105 -0.571  -0.535  0.568 -0.610   -0.777 -0.868  1.19   0.424
+#>  2  0.151 -0.105 -0.571  -0.535  0.568 -0.350   -0.464 -0.868  1.19   0.424
+#>  3  0.450 -1.22  -0.990  -0.783  0.474 -0.917    0.426  1.12   1.19   0.424
+#>  4  0.217 -0.105  0.220  -0.535 -0.966 -0.00230  0.890  1.12  -0.814 -0.932
+#>  5 -0.231  1.01   1.04    0.413 -0.835  0.228   -0.464 -0.868 -0.814 -0.932
+#>  6 -0.330 -0.105 -0.0462 -0.608 -1.56   0.248    1.33   1.12  -0.814 -0.932
+#>  7 -0.961  1.01   1.04    1.43  -0.723  0.361   -1.12  -0.868 -0.814 -0.932
+#>  8  0.715 -1.22  -0.678  -1.24   0.175 -0.0278   1.20   1.12  -0.814  0.424
+#>  9  0.450 -1.22  -0.726  -0.754  0.605 -0.0687   2.83   1.12  -0.814  0.424
+#> 10 -0.148 -0.105 -0.509  -0.345  0.605  0.228    0.253  1.12  -0.814  0.424
+#> # ℹ 22 more rows
+#> # ℹ 1 more variable: carb <dbl>
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
+Embeded plots:
 
 <img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
