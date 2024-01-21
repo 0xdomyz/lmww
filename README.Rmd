@@ -19,8 +19,9 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of lmww is to support thinking of linear models in terms of factor
-weights, instead of factor absolute coefficients. This means better interpretation
-of the model drivers, which helps in creating confidence in the model.
+weights, instead of factor absolute coefficients.
+This means better interpretation
+of the model drivers, which helps to build confidence in the model.
 
 ## Installation
 
@@ -33,11 +34,30 @@ devtools::install_github("0xdomyz/lmww")
 
 ## Example
 
-Fit a linear model with weights:
+Standardize and fit a linear model showing the resulting weights:
 
 ```{r example}
 library(lmww)
-## basic example code
-purrr::map(mtcars, std) |> dplyr::bind_cols()
+
+data <- purrr::map(mtcars, std) |> dplyr::bind_cols()
+data$mpg <- mtcars$mpg
+
+fit <- fit_lm(c("disp", "hp", "wt", "qsec", "am"), "mpg", data)
+fit
+```
+
+Round off the weights to more understandable numbers and examine the model fit:
+
+```{r example 2}
+test_lm(
+  c("disp", "hp", "wt", "qsec", "am"), c(0.1, 0.15, 0.4, 0.2, 0.15),
+  fit$signs, "mpg", data
+)
+```
+
+WIP, constraining some of the weights with upper and lower bounds:
+
+```{r example 3}
+FALSE
 ```
 
