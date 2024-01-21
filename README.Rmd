@@ -33,17 +33,11 @@ devtools::install_github("0xdomyz/lmww")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Fit a linear model with weights:
 
 ```{r example}
 library(lmww)
 ## basic example code
 purrr::map(mtcars, std) |> dplyr::bind_cols()
-```
-
-Embeded plots:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
 ```
 

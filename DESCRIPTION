@@ -14,4 +14,6 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     dplyr,
-    purrr
+    Hmisc,
+    purrr,
+    stringr

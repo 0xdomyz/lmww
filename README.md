@@ -22,7 +22,7 @@ devtools::install_github("0xdomyz/lmww")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Fit a linear model with weights:
 
 ``` r
 library(lmww)
@@ -44,7 +44,3 @@ purrr::map(mtcars, std) |> dplyr::bind_cols()
 #> # ℹ 22 more rows
 #> # ℹ 1 more variable: carb <dbl>
 ```
-
-Embeded plots:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
